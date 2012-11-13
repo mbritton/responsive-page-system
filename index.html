@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv = "expires" value = "Wed, 22 Dec 2009 12:00:00 GMT" />
+        <meta http-equiv = "pragma" content = "no-cache" />
+        <title>Responsive Page System (RPS)</title>
+        <meta name="author" content="Mike Britton" />
+        <meta http-equiv="Access-Control-Allow-Origin" content="*">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="leftNav">&nbsp;</div>
+        <div class='topNav'></div>
+        <div class='bottomNav'></div>
+        <div class="pageMenu"></div>
+        <div class="pageMenuButtons"></div>
+        <div class="viewPort"></div>
+    </body>
+
+    <!-- PUREMVC LIBRARY -->
+    <script language="JavaScript" src="vendor/modernizr-2.6.1.min.js"></script>
+    <script language="JavaScript" src="vendor/puremvc-1.0.js"></script>
+    <script language="JavaScript" src="vendor/jquery-1.7.1.min.js"></script>
+    <script language="JavaScript" src="vendor/jquery.easing.min.js"></script>
+    <script language="JavaScript" src="vendor/underscore-min.js"></script>
+
+    <!-- SIGNALS -->
+    <script language="JavaScript" src="vendor/signals.min.js"></script>
+
+    <!-- APPLICATION (VIEW/CONTROLLER RELATED) CONSTANTS -->
+    <script language="JavaScript" src="AppConstants.js"></script>
+
+    <!-- APPLICATION FACADE -->
+    <script language="JavaScript" src="ApplicationFacade.js"></script>
+
+    <!-- PROXIES -->
+    <script language="JavaScript" src="model/proxy/PageProxy.js"></script>
+
+    <!-- COMMANDS -->
+    <script language="JavaScript" src="command/StartupCommand.js"></script>
+    <script language="JavaScript" src="command/ModelPrepCommand.js"></script>
+    <script language="JavaScript" src="command/ViewPrepCommand.js"></script>
+    <script language="JavaScript" src="command/PageCommand.js"></script>
+    <script language="JavaScript" src="command/MenuCommand.js"></script>
+
+    <!-- VIEW COMPONENTS -->
+    <script language="JavaScript" src="view/component/ViewPortComponent.js"></script>
+    <script language="JavaScript" src="view/component/BottomNavComponent.js"></script>
+    <script language="JavaScript" src="view/component/TopNavComponent.js"></script>
+    <script language="JavaScript" src="view/component/PageMenuComponent.js"></script>
+
+    <!-- MEDIATORS -->
+    <script language="JavaScript" src="view/mediator/ViewPortMediator.js"></script>
+    <script language="JavaScript" src="view/mediator/BottomNavMediator.js"></script>
+    <script language="JavaScript" src="view/mediator/TopNavMediator.js"></script>
+    <script language="JavaScript" src="view/mediator/PageMenuMediator.js"></script>
+
+    <!-- START THE APPLICATION -->
+    <script language="JavaScript">
+        $(document).ready(function() {
+            // initialize the facade by retrieving an instance and calling startup
+            rps.ApplicationFacade.getInstance(rps.ApplicationFacade.NAME).startup();
+        });
+    </script>
+
+</html>

@@ -1,0 +1,230 @@
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+	font: normal 18px/1.0 "Verdana", sans-serif;
+    line-height: 1.4;
+    margin: 0px 0px 0px 0px;
+    background-color:#000000;
+}
+
+/**
+ * 	The main viewport into which
+ *  all content is added.
+ */
+.viewPort {
+	position:fixed;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	left :0px;
+}
+
+/**
+ * 	Background shim for pageMenuButtons
+ */
+.pageMenu {
+	position:absolute;
+	color:#ffff00;
+	text-align:left;
+	background-color:#000000;
+	opacity:.5;
+	display:none;
+	z-index: 9998;
+}
+
+/**
+ * 	Contains navigation buttons to pages
+ */
+.pageMenuButtons {
+	position:absolute;
+	background-color:#000000;
+	display:none;
+	z-index: 10000;
+}
+
+/**
+ * 	Individual buttons use this class
+ */
+.pageMenuButton {
+	background-color:#cecece;
+	text-align:center;
+	margin-top:1px;
+	width:100%;
+}
+
+/**
+ * 	Back button on top navigation
+ */
+.backButton {
+	position:absolute;
+    float:left;
+    text-align: center;
+    background:url(images/backarrow.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.homeButton {
+	position:absolute;
+    float:left;
+    text-align: center;
+}
+
+.menuButton {
+	position:absolute;
+    float:left;
+    text-align: center;
+}
+
+.topNavButton {
+    float:left;
+    text-align: center;
+}
+
+.topNavButtonBack {
+    float:left;
+    text-align: center;
+    background:url(images/arrow_previous_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;	
+    background-color:#FFFFFF;
+}
+
+.topNavButtonHome {
+    float:left;
+    text-align: center;
+    background:url(images/arrow_home_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;	
+    background-color:#FFFFFF;
+}
+
+.navButton {
+    float: left;
+    text-align: center;
+    border-top: 1px solid #000000;
+}
+
+
+.navButtonMenu {
+	border-top: 1px solid #000000;
+    float:left;
+    text-align: center;
+    background:url(images/menu_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color:#FFFFFF;	
+}
+
+.navButtonMenuSelected {
+	border-top: 1px solid #000000;
+    float:left;
+    text-align: center;
+    background:url(images/menu_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;	
+    background-color:#FFFFFF;
+    cursor:pointer;
+}
+
+.navButtonMenuTop {
+	position:fixed;
+    float:left;
+    text-align: center;
+    background:url(images/menu_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color:#FFFFFF;	
+    cursor:pointer;
+}
+
+.navButtonNext {
+	border-top: 1px solid #000000;
+    float:left;
+    text-align: center;
+    background:url(images/arrow_next_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;	
+    background-color:#FFFFFF;
+    cursor:pointer;
+}
+
+.navButtonPrevious {
+	border-top: 1px solid #000000;
+    float:left;
+    text-align: center;
+    background:url(images/arrow_previous_black.png);
+    background-repeat: no-repeat;
+    background-position: center center;	
+    background-color:#FFFFFF;
+    cursor:pointer;
+}
+
+.bottomNav {
+	position:fixed;
+    overflow:hidden;
+    text-align: center;
+    background-color:#669991;
+    z-index: 9999;
+    opacity:1;
+    cursor:pointer;
+}
+
+.page {
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+.pagesX {
+	position:absolute;
+	z-index: 9998;
+	overflow:auto;
+}
+
+.pagesY {
+	position:absolute;
+	z-index: 9997;
+	overflow:auto;
+}
+
+.topNav {
+    position:fixed;
+    border-bottom: 1px solid #000000;
+    overflow:hidden;
+    z-index: 10001;
+    background-color:#FFFFFF;
+    cursor:pointer;
+}
+
+.pageContent {
+	overflow-x:hidden;
+	/*	Box sizing used to prevent views from overscaling.*/
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */	
+}
+
+.leftNav {
+	position:fixed;
+	color:#FFFFFF;
+	width:300px;
+	background-color:#ffff00;
+	display:none;
+}
+
+.gridRowMain {
+	position:relative;
+	border:1px solid #000000;
+	height:50px;
+	line-height:50px;
+	padding-left:10px;
+}
+
+
+
