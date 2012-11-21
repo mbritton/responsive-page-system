@@ -1,69 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta http-equiv = "expires" value = "Wed, 22 Dec 2009 12:00:00 GMT" />
         <meta http-equiv = "pragma" content = "no-cache" />
-        <title>Responsive Page System (RPS)</title>
         <meta name="author" content="Mike Britton" />
         <meta http-equiv="Access-Control-Allow-Origin" content="*">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta name="src/viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="css/main.css">
+        <title>PureMVC JavaScript Demo: Responsive Page System</title>
     </head>
+
     <body>
+        <div class="background">&nbsp;</div>
         <div class="leftNav">&nbsp;</div>
-        <div class='topNav'></div>
-        <div class='bottomNav'></div>
+        <div class="topNav"></div>
+        <div class="bottomNav"></div>
         <div class="pageMenu"></div>
         <div class="pageMenuButtons"></div>
         <div class="viewPort"></div>
     </body>
 
     <!-- PUREMVC LIBRARY -->
-    <script language="JavaScript" src="vendor/modernizr-2.6.1.min.js"></script>
-    <script language="JavaScript" src="vendor/puremvc-1.0.js"></script>
-    <script language="JavaScript" src="vendor/jquery-1.7.1.min.js"></script>
-    <script language="JavaScript" src="vendor/jquery.easing.min.js"></script>
-    <script language="JavaScript" src="vendor/underscore-min.js"></script>
+    <script language="JavaScript" src="lib/modernizr-2.6.1.min.js"></script>
+    <script language="JavaScript" src="lib/puremvc-1.0.js"></script>
+    <script language="JavaScript" src="lib/jquery-1.7.1.min.js"></script>
+    <script language="JavaScript" src="lib/jquery.easing.min.js"></script>
+    <script language="JavaScript" src="lib/underscore-min.js"></script>
 
     <!-- SIGNALS -->
-    <script language="JavaScript" src="vendor/signals.min.js"></script>
+    <script language="JavaScript" src="lib/signals.min.js"></script>
+
+    <!-- CONSTANTS -->
+    <script src="src/controller/constants/AppConstants.js"></script>
+    
+    <!-- UNDERSCORE TEMPLATES //-->
+    
+    <!-- Default //-->
+    <script id="default" type="text/template">
+        <div class="pageTitle"><%= title %></div>
+        <div class="pageText"><%= text %></div>
+    </script>    
+    
+    <!-- Home page //-->
+    <script id="home" type="text/template">
+        <div class="homeTopWordmark">&nbsp;</div>
+        <div class="homeTopContent">&nbsp;</div>
+        <div class="homeImageBackground" style="left:0px">&nbsp;</div>
+        
+    </script>
+    
+    <!-- Data Grid //-->
+    <script id="grid" type="text/template">
+        <div class="pageGrid">
+            <% _.each(items,function(item){ %>
+                <div class="gridRowMain" style="width:100%;"><%= item.label %></div>
+            <% }); %>
+        </div>
+    </script>
 
     <!-- APPLICATION (VIEW/CONTROLLER RELATED) CONSTANTS -->
-    <script language="JavaScript" src="AppConstants.js"></script>
-
-    <!-- APPLICATION FACADE -->
-    <script language="JavaScript" src="ApplicationFacade.js"></script>
+    <script language="JavaScript" src="src/controller/constants/AppConstants.js"></script>
 
     <!-- PROXIES -->
-    <script language="JavaScript" src="model/proxy/PageProxy.js"></script>
+    <script language="JavaScript" src="src/model/proxy/PageProxy.js"></script>
+    <script language="JavaScript" src="src/model/vo/ChangeObject.js"></script>
 
     <!-- COMMANDS -->
-    <script language="JavaScript" src="command/StartupCommand.js"></script>
-    <script language="JavaScript" src="command/ModelPrepCommand.js"></script>
-    <script language="JavaScript" src="command/ViewPrepCommand.js"></script>
-    <script language="JavaScript" src="command/PageCommand.js"></script>
-    <script language="JavaScript" src="command/MenuCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/StartupCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/PrepareControllerCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/PrepareModelCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/PrepareViewCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/PageCommand.js"></script>
+    <script language="JavaScript" src="src/controller/command/MenuCommand.js"></script>
 
     <!-- VIEW COMPONENTS -->
-    <script language="JavaScript" src="view/component/ViewPortComponent.js"></script>
-    <script language="JavaScript" src="view/component/BottomNavComponent.js"></script>
-    <script language="JavaScript" src="view/component/TopNavComponent.js"></script>
-    <script language="JavaScript" src="view/component/PageMenuComponent.js"></script>
+    <script language="JavaScript" src="src/view/component/ViewPortComponent.js"></script>
+    <script language="JavaScript" src="src/view/component/BottomNavComponent.js"></script>
+    <script language="JavaScript" src="src/view/component/TopNavComponent.js"></script>
+    <script language="JavaScript" src="src/view/component/PageMenuComponent.js"></script>
 
     <!-- MEDIATORS -->
-    <script language="JavaScript" src="view/mediator/ViewPortMediator.js"></script>
-    <script language="JavaScript" src="view/mediator/BottomNavMediator.js"></script>
-    <script language="JavaScript" src="view/mediator/TopNavMediator.js"></script>
-    <script language="JavaScript" src="view/mediator/PageMenuMediator.js"></script>
+    <script language="JavaScript" src="src/view/mediator/ViewPortMediator.js"></script>
+    <script language="JavaScript" src="src/view/mediator/BottomNavMediator.js"></script>
+    <script language="JavaScript" src="src/view/mediator/TopNavMediator.js"></script>
+    <script language="JavaScript" src="src/view/mediator/PageMenuMediator.js"></script>
+    
+    <!-- THE APPLICATION -->
+    <script src="src/Application.js"></script>
 
     <!-- START THE APPLICATION -->
+    <!--
     <script language="JavaScript">
         $(document).ready(function() {
             // initialize the facade by retrieving an instance and calling startup
             rps.ApplicationFacade.getInstance(rps.ApplicationFacade.NAME).startup();
         });
     </script>
+    -->
+    
+    <!-- START THE APPLICATION -->
+    <script>
+        $(document).ready(function() {
+             rps.app = new rps.Application();
+        });
+    </script>    
 
 </html>
